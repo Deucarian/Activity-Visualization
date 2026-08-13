@@ -1,0 +1,33 @@
+{
+  "name": "com.deucarian.activity-visualization",
+  "version": "0.1.0",
+  "displayName": "Deucarian Activity Visualization",
+  "description": "Deterministic, revision-aware Activity and Step membership visualization for indexed Unity models.",
+  "unity": "2021.3",
+  "license": "MIT",
+  "author": {
+    "name": "Deucarian"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deucarian/Activity-Visualization.git"
+  },
+  "keywords": [
+    "deucarian",
+    "activity",
+    "visualization",
+    "visibility",
+    "viewer"
+  ],
+  "dependencies": {
+    "com.deucarian.diagnostics": "0.1.4",
+    "com.deucarian.logging": "1.0.2"
+  },
+  "samples": [
+    {
+      "displayName": "Activity Visibility Basics",
+      "description": "Explicit composition with Activity and Step selections, preview replacement, and clearing.",
+      "path": "Samples~/Activity Visibility Basics"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Deucarian.ActivityVisualization",
+  "rootNamespace": "Deucarian.ActivityVisualization",
+  "references": [
+    "Deucarian.Diagnostics",
+    "Deucarian.Logging"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -1,0 +1,27 @@
+{
+  "packageId": "com.deucarian.activity-visualization",
+  "displayName": "Deucarian Activity Visualization",
+  "ownedCapabilities": [
+    "activity-model-visualization"
+  ],
+  "runtimeAssemblies": [
+    "Deucarian.ActivityVisualization"
+  ],
+  "editorAssemblies": [],
+  "sampleAssemblies": [
+    "Deucarian.ActivityVisualization.Samples.Basic"
+  ],
+  "testAssemblies": [
+    "Deucarian.ActivityVisualization.Tests"
+  ],
+  "requiredDependencies": [
+    "com.deucarian.diagnostics",
+    "com.deucarian.logging"
+  ],
+  "optionalVersionDefinedDependencies": [],
+  "allowedDirectDebugCalls": [],
+  "allowedDirectUnityObjectLifetimeCalls": [],
+  "expectedSamplesRoot": "Samples~",
+  "samplePolicy": "compiled-example",
+  "operationalPackage": true
+}

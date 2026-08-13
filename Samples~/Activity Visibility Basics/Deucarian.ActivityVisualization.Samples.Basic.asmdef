@@ -1,0 +1,16 @@
+{
+  "name": "Deucarian.ActivityVisualization.Samples.Basic",
+  "rootNamespace": "Deucarian.ActivityVisualization.Samples.Basic",
+  "references": [
+    "Deucarian.ActivityVisualization"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
