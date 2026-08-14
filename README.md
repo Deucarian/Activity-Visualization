@@ -1,6 +1,6 @@
 # Deucarian Activity Visualization
 
-`com.deucarian.activity-visualization` turns normalized Activity or Step model
+`com.deucarian.activity-visualization` turns normalized flat Activity model
 membership into deterministic, full-replacement visibility plans. One
 revision-aware state owner coordinates preview snapshots, selection, clearing,
 diagnostics, and a narrow model-specific visibility adapter.
@@ -9,7 +9,7 @@ Current package version: `0.1.0`.
 
 ## Ownership
 
-This package owns normalized Activity/Step visibility contracts, pure planning,
+This package owns normalized flat Activity visibility contracts, pure planning,
 revision ordering, baseline strategy selection, and authoritative applied
 visibility state. It does not own backend DTOs, model loading, command routing,
 camera navigation, Unity input, browser transport, or persistence.
@@ -57,7 +57,7 @@ var state = new ActivityVisualizationStateOwner(
     new ShowAllBaselineVisibilityStrategy());
 
 state.ReplacePreview(normalizedSnapshot); // revision 10
-state.Select(ActivitySelection.ForStep("activity-7", "step-2"), 11);
+state.Select(ActivitySelection.ForActivity("activity-7"), 11);
 state.Clear(12);
 ```
 
@@ -70,8 +70,8 @@ controller, planner, and baseline strategy remain caller-owned.
 - Older or repeated revisions are rejected without changing visibility.
 - A preview snapshot is complete and contains visibility-relevant data only.
 - A selected Activity uses its exact members.
-- A selected Step uses its exact Step members; it does not implicitly inherit
-  its parent Activity members.
+- Membership collections are explicit. A null collection is rejected; an empty
+  collection intentionally hides every indexed model element.
 - Plans assign every indexed model element exactly once in identifier order.
 - Required missing members reject the candidate plan. Optional missing members
   produce diagnostics and the remaining plan is applied.
@@ -97,10 +97,9 @@ whether reconciliation actually changed model visibility.
 
 - `ModelElementId`: backend-neutral scheme/value identity.
 - `ModelElementMember`: membership plus required/optional policy.
-- `ActivityVisibilityDefinition`: Activity members and explicit Steps.
-- `ActivityStepVisibilityDefinition`: exact Step membership.
+- `ActivityVisibilityDefinition`: exact flat Activity membership.
 - `ActivityPreviewSnapshot`: complete normalized preview and revision.
-- `ActivitySelection`: stable Activity or Step selection.
+- `ActivitySelection`: stable Activity selection.
 - `IModelElementIndex` / `ModelElementIndex`: immutable visible-target index.
 - `IActivityVisibilityPlanner` / `ActivityVisibilityPlanner`: pure planning.
 - `VisibilityPlan`: deterministic full replacement assignment set.
@@ -116,8 +115,8 @@ whether reconciliation actually changed model visibility.
 The initial boundary was proven against HoloHelmet's current Activity behavior:
 selecting an Activity hides the indexed model then enables that Activity's
 direct model members; clear restores configured display. HoloHelmet does not
-currently contain Step membership, so Step definitions are explicit normalized
-input owned by the integrating application rather than inferred here.
+contain a nested Step entity in this path, so the package intentionally exposes
+only the flat contract proven by the donor and production data.
 
 ## Validation
 

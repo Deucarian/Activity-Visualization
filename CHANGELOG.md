@@ -2,11 +2,24 @@
 
 All notable changes to this package are documented here.
 
+## [Unreleased]
+
+### Changed
+
+- Removed the speculative nested Step contract. The package now models the
+  proven flat Activity-to-model-membership domain only.
+- Reject null membership collections; callers must explicitly provide an empty
+  collection for an Activity with no model members.
+
+### Fixed
+
+- Canonicalize identifiers before membership and model-index deduplication.
+
 ## [0.1.0] - 2026-08-13
 
 ### Added
 
-- Backend-neutral Activity, Step, and model membership contracts.
+- Backend-neutral Activity and model membership contracts.
 - Deterministic full-replacement visibility planning.
 - Revision-aware authoritative preview and selection state.
 - Required/optional missing-member policy and structured outcomes.

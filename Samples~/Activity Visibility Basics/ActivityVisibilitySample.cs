@@ -36,12 +36,6 @@ namespace Deucarian.ActivityVisualization.Samples.Basic
             stateOwner.Select(ActivitySelection.ForActivity("installation"), NextRevision());
         }
 
-        [ContextMenu("Select First Step")]
-        public void SelectFirstStep()
-        {
-            stateOwner.Select(ActivitySelection.ForStep("installation", "fasteners"), NextRevision());
-        }
-
         [ContextMenu("Clear Selection")]
         public void ClearSelection()
         {
@@ -68,13 +62,7 @@ namespace Deucarian.ActivityVisualization.Samples.Basic
                 {
                     new ActivityVisibilityDefinition(
                         "installation",
-                        new[] { Required("a"), Required("b") },
-                        new[]
-                        {
-                            new ActivityStepVisibilityDefinition(
-                                "fasteners",
-                                new[] { Required("b") })
-                        })
+                        new[] { Required("a"), Required("b") })
                 });
         }
 

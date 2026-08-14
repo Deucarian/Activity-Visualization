@@ -19,23 +19,28 @@ namespace Deucarian.ActivityVisualization
         public static ReadOnlyCollection<ModelElementMember> CanonicalizeMembers(
             IEnumerable<ModelElementMember> members)
         {
+            if (members == null)
+            {
+                throw new ArgumentNullException(nameof(members));
+            }
+
             SortedDictionary<ModelElementId, ModelElementRequirement> requirements =
                 new SortedDictionary<ModelElementId, ModelElementRequirement>();
 
-            if (members != null)
+            foreach (ModelElementMember member in members)
             {
-                foreach (ModelElementMember member in members)
+                if (!member.ElementId.IsValid)
                 {
-                    if (!member.ElementId.IsValid)
-                    {
-                        throw new ArgumentException("Membership contains an invalid model element identifier.", nameof(members));
-                    }
+                    throw new ArgumentException("Membership contains an invalid model element identifier.", nameof(members));
+                }
 
-                    if (!requirements.TryGetValue(member.ElementId, out ModelElementRequirement current)
-                        || member.Requirement > current)
-                    {
-                        requirements[member.ElementId] = member.Requirement;
-                    }
+                ModelElementId canonicalId = new ModelElementId(
+                    member.ElementId.Scheme,
+                    member.ElementId.Value);
+                if (!requirements.TryGetValue(canonicalId, out ModelElementRequirement current)
+                    || member.Requirement > current)
+                {
+                    requirements[canonicalId] = member.Requirement;
                 }
             }
 

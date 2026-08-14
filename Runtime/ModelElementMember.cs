@@ -9,7 +9,7 @@ namespace Deucarian.ActivityVisualization
     }
 
     /// <summary>
-    /// One normalized Activity or Step membership reference.
+    /// One normalized Activity membership reference.
     /// </summary>
     public readonly struct ModelElementMember : IEquatable<ModelElementMember>
     {

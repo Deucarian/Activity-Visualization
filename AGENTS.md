@@ -8,7 +8,7 @@ Follow the canonical Deucarian Package Registry architecture rules.
 
 ## Ownership
 
-This package owns normalized Activity/Step model membership, deterministic
+This package owns normalized flat Activity model membership, deterministic
 visibility planning, baseline policy, revision ordering, and authoritative
 preview/selection visibility state.
 

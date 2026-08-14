@@ -39,25 +39,11 @@ namespace Deucarian.ActivityVisualization
                 return VisibilityPlanningResult.InvalidSelection();
             }
 
-            IReadOnlyList<ModelElementMember> members;
-            if (selection.Kind == ActivitySelectionKind.Activity)
-            {
-                members = activity.Members;
-            }
-            else if (!activity.TryGetStep(selection.StepId, out ActivityStepVisibilityDefinition step))
-            {
-                return VisibilityPlanningResult.InvalidSelection();
-            }
-            else
-            {
-                members = step.Members;
-            }
-
             HashSet<ModelElementId> visibleIdentifiers = new HashSet<ModelElementId>();
             List<ModelElementId> missingRequired = new List<ModelElementId>();
             List<ModelElementId> missingOptional = new List<ModelElementId>();
 
-            foreach (ModelElementMember member in members)
+            foreach (ModelElementMember member in activity.Members)
             {
                 if (modelIndex.Contains(member.ElementId))
                 {

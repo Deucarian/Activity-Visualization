@@ -24,7 +24,7 @@ namespace Deucarian.ActivityVisualization
                     throw new ArgumentException("The model index cannot contain an invalid identifier.", nameof(elementIds));
                 }
 
-                identifiers.Add(elementId);
+                identifiers.Add(new ModelElementId(elementId.Scheme, elementId.Value));
             }
 
             List<ModelElementId> sorted = new List<ModelElementId>(identifiers);

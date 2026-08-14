@@ -74,16 +74,11 @@ namespace Deucarian.ActivityVisualization.Tests
         public static ActivityPreviewSnapshot Snapshot(
             long revision,
             string activityId,
-            IEnumerable<ModelElementMember> activityMembers,
-            string stepId = null,
-            IEnumerable<ModelElementMember> stepMembers = null)
+            IEnumerable<ModelElementMember> activityMembers)
         {
-            ActivityStepVisibilityDefinition[] steps = stepId == null
-                ? null
-                : new[] { new ActivityStepVisibilityDefinition(stepId, stepMembers) };
             return new ActivityPreviewSnapshot(
                 revision,
-                new[] { new ActivityVisibilityDefinition(activityId, activityMembers, steps) });
+                new[] { new ActivityVisibilityDefinition(activityId, activityMembers) });
         }
 
         public static ActivityVisualizationStateOwner CreateOwner(
